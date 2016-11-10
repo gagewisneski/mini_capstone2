@@ -1,0 +1,8 @@
+<h1>This is my products homepage</h1>
+
+<% @products.each do |product|%>
+  <h3><%= product.name %>:</h3>
+  <image src=<%= product.image %> height="100">
+  <h3><%= number_to_currency(product.price * 1.09) %></h3>
+  <h4><%= product.description %></h4>
+<% end %>
