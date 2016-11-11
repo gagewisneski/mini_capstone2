@@ -1,9 +1,11 @@
 <h1>This is my products homepage</h1>
 
+
+
 <% @products.each do |product|%>
-  <div class="jumbotron">
+  <div class="col-md-4">
     <h3><%= product.name %>:</h3>
-    <image src=<%= product.image %> height="100">
+    <image src=<%= product.image %> height="100"></image>
     <h3><%= number_to_currency(product.price * 1.09) %></h3>
     <h4><%= product.description %></h4>
     <p><a class="btn btn-primary btn-lg" href="#" role="button">Add to cart</a></p>
