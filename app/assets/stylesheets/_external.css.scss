@@ -1,2 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.product_image {
+  height: 200px;
+}
+
+.jumbotron {
+  border-radius: 10px;
+  box-shadow: 1px 3px 3px #888888;
+}
+
+.btn {
+  box-shadow: 1px 2px 2px #888888;
+}
+
+.form-control {
+  width: 400px;
+}
+
+.description {
+  width: 400px;
+  height: 400px;
+}
+
+.body-margin {
+  margin-left: 10px;
+}

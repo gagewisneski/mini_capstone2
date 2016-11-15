@@ -1,0 +1,26 @@
+<div class=body-margin>
+  <h1>Add a new product</h1>
+  <%= form_tag "/new_product", method: :post do %>
+    <div class="form-group">
+      <%= text_field_tag :name, "Product Name", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= text_field_tag :price, "Price", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= text_field_tag :image, "Image Link", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= text_field_tag :description, "Product Description", class: "form-control description" %>
+    </div>
+
+    <div>
+      <%= submit_tag "Submit", class: "btn btn-danger btn-lg" %>
+    </div>
+
+  <% end %>
+</div>
+
