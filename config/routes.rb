@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   get "/products", to: "products#index"
 
+  #to edit a product
+  get "/products/:id/edit", to: "products#edit"
+  patch "/products/:id", to: "products#update"
 
   #make sure routes aren't overriden
   get "/products/:id", to: "products#show"

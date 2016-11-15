@@ -1,6 +1,5 @@
-<div class="body-margin">
-<h1><%= @product.name %></h1>
 
-
-
-</div>
+<h3><%= link_to @product.name, "/products/#{@product.id}" %>:</h3>
+<image class = "product_image" src=<%= @product.image %>></image>
+<h3><%= number_to_currency(@product.price * 1.09) %></h3>
+<h4><%= @product.description %></h4>
