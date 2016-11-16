@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get "/", to: "products#home"
-
-  get "/new_product", to: "products#new_product"
-  post "/create_product", to: "products#create_product"
-
+  get "/", to: "products#index"
   get "/products", to: "products#index"
+
+  get "/products/new", to: "products#new"
+  post "/products", to: "products#create"
 
   #to edit a product
   get "/products/:id/edit", to: "products#edit"

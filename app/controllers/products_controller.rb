@@ -1,21 +1,17 @@
 class ProductsController < ApplicationController
 
-  def home
-
-    @products = Product.all
-
-  end
-
-  def new_product
-  end
-
   def index
     @products = Product.all
   end
 
-  def create_product
+  def new
+  end
+
+  def create
     @product = Product.new(name: params[:name], price: params[:price].to_i, image: params[:image], description: params[:description])
     @product.save
+
+    redirect_to "/product/#{@product.id}"
   end
 
   def show
@@ -30,11 +26,15 @@ class ProductsController < ApplicationController
     product = Product.find_by(id: params[:id])
     product.assign_attributes(name: params[:name], price: params[:price].to_i, image: params[:image], description: params[:description])
     product.save
+
+    redirect_to "/products/#{product.id}"
   end
 
   def destroy
     product = Product.find_by(id: params[:id])
     product.destroy
+
+    redirect_to "/products"
   end
 
 end
