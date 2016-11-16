@@ -32,6 +32,11 @@ class ProductsController < ApplicationController
     product.save
   end
 
+  def destroy
+    product = Product.find_by(id: params[:id])
+    product.destroy
+  end
+
 end
 
 

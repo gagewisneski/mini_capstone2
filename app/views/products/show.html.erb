@@ -3,3 +3,12 @@
 <image class = "product_image" src=<%= @product.image %>></image>
 <h3><%= number_to_currency(@product.price * 1.09) %></h3>
 <h4><%= @product.description %></h4>
+
+
+<div>
+  <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
+</div>
+
+<div>
+  <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete %>
+</div>
