@@ -1,14 +1,17 @@
+<div class="col-md-4">
+  <div class="jumbotron">
+    <div class="container">
+      <h2 class = "product-name"><%= @product.name %>:</h2>
+      <image class = "product-image" src=<%= @product.image %>></image>
+      <h3 class = "price"><%= number_to_currency(@product.price * 1.09) %></h3>
+      <h4><%= @product.description %></h4>
 
-<h3><%= link_to @product.name, "/products/#{@product.id}" %>:</h3>
-<image class = "product_image" src=<%= @product.image %>></image>
-<h3><%= number_to_currency(@product.price * 1.09) %></h3>
-<h4><%= @product.description %></h4>
-
-
-<div>
-  <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
-</div>
-
-<div>
-  <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete %>
+      <div>
+        <%= link_to "Edit Product", "/products/#{@product.id}/edit", class:"btn btn-primary btn-lg" %>
+      </div>
+      <div>
+        <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete, class:"btn btn-danger btn-lg" %>
+      </div>
+    </div>
+  </div>
 </div>

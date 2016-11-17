@@ -1,13 +1,29 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.product_image {
+body {
+
+  font-family: 'Titillium Web', sans-serif;
+  background-image: url(footer_lodyas.png)
+}
+
+.page-header {
+  color: white;
+}
+
+.product-image {
   height: 200px;
+}
+
+.product-name{
+  font-weight: bold;
 }
 
 .jumbotron {
   border-radius: 10px;
   box-shadow: 1px 3px 3px #888888;
+  background-image: url(halftone.png);
+  height: 500px;
 }
 
 .btn {
@@ -23,6 +39,7 @@
   height: 400px;
 }
 
-body {
-  margin-left: 20px;
+.price {
+  font-weight: bold;
 }
+

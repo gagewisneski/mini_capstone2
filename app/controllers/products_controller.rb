@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
     product = Product.find_by(id: params[:id])
     product.destroy
 
-    flash[:success] = "Product has been deleted"
+    flash[:danger] = "Product has been deleted"
 
     redirect_to "/products"
   end
