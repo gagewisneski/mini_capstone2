@@ -1,4 +1,29 @@
 class Product < ApplicationRecord
+
+  def sale_message
+    if price < 2
+      return "Discount Item!"
+    else
+      return "On Sale!"
+    end
+  end
+
+  def tax
+    return price*0.09
+  end
+
+  def price_tax
+    return price + tax
+  end
+
+  def discounted?
+    if sale_message == "Discount Item!"
+      return "jumbotron jumbotron-red"
+    else
+      return "jumbotron"
+    end
+  end
+
 end
 
 
