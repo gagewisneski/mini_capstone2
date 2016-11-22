@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   #make sure routes aren't overriden
   get "/products/:id", to: "products#show"
 
+  get "/products/:id/confirmation", to: "products#confirmation"
+
 end

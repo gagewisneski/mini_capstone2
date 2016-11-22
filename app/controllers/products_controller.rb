@@ -13,11 +13,22 @@ class ProductsController < ApplicationController
 
     flash[:success] = "Product has been created"
 
-    redirect_to "/product/#{@product.id}"
+    redirect_to "/products/#{@product.id}"
   end
 
   def show
     @product = Product.find_by(id: params[:id])
+  end
+
+  def confirmation
+
+    @product = Product.find_by(id: params[:id])
+
+    redirect_to "/products/#{@product.id}"
+
+    flash[:danger] = "Are you sure you want to delete this product?!?! <a class='btn btn-danger btn-lg' data-method='delete' href='/products/#{@product.id}' role='button'> Yes</a> <a class='btn btn-success btn-lg' href='/products/#{@product.id}' role='button'> No</a>"
+
+
   end
 
   def edit
