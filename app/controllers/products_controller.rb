@@ -1,7 +1,22 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    sort_column = params[:sort]
+    # in url /products?sort=id
+    # in url /products?sort=name
+    if sort_column == "price::desc"
+      @products = Product.all.order(price: :desc)
+    elsif
+      sort_column == "id::desc"
+      @products = Product.all.order(id: :desc)
+    else
+      @products = Product.all.order(sort_column)
+    end
+
+    discount = params[:discount]
+    if discount == "2"
+      @products = Product.where("price < ?", 2)
+    end
   end
 
   def new
@@ -17,7 +32,13 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
+    rando = params[:id]
+    prods = Product.all
+    if rando == "random"
+      rando = prods.sample
+      rando = rando[:id]
+    end
+    @product = Product.find_by(id: rando)
   end
 
   def confirmation

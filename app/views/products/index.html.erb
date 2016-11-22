@@ -1,5 +1,20 @@
 
-<h1 class="page-header">These are all of my beautiful products:</h1>
+<h1 class="page-header">These are all of my beautiful products:
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort By: <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="/products?sort=name">Sort by Name</a></li>
+      <li><a href="/products?sort=price">Sort by Price low to high</a></li>
+      <li><a href="/products?sort=price::desc">Sort by Price high to low</a></li>
+      <li><a href="/products?sort=id::desc">Sort by Newest first</a></li>
+      <li><a href="/products?sort=id">Sort by Oldest first</a></li>
+    </ul>
+  </div>
+
+</h1>
 
 <div class="row">
 <% @products.each do |product|%>
