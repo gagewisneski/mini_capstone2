@@ -26,9 +26,14 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class = "form-inline">
+        <%= form_tag "/products/search", method: :get do %>
+          <%= text_field_tag :name, "Search", class: "form-control" %> <%= submit_tag "Let's Go", class: "btn btn-default" %>
+        <% end %>
+      </div>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/products/random">Random Product</a></li>
-        <li><a href="/products?discount=2">Discounted Items</a></li>
+        <li><a href="/products?discount=20">Discounted Items</a></li>
         <li><a href="/products/new">Create a product</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

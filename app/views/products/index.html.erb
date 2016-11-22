@@ -3,14 +3,14 @@
 
   <div class="btn-group">
     <button type="button" class="btn btn-default dropdown-toggle sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Sort By: <span class="caret"></span>
+      <%= @sort_column %>: <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-      <li><a href="/products?sort=name">Sort by Name</a></li>
-      <li><a href="/products?sort=price">Sort by Price low to high</a></li>
-      <li><a href="/products?sort=price::desc">Sort by Price high to low</a></li>
-      <li><a href="/products?sort=id::desc">Sort by Newest first</a></li>
-      <li><a href="/products?sort=id">Sort by Oldest first</a></li>
+      <li><a href="/products?sort=Name">Sort by Name</a></li>
+      <li><a href="/products?sort=Price">Sort by Price low to high</a></li>
+      <li><a href="/products?sort=PriceDesc">Sort by Price high to low</a></li>
+      <li><a href="/products?sort=IdDesc">Sort by Newest first</a></li>
+      <li><a href="/products?sort=Id">Sort by Oldest first</a></li>
     </ul>
   </div>
 

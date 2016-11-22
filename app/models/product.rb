@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
   def sale_message
-    if price < 2
+    if price < 20
       return "Discount Item!"
     else
       return "On Sale!"
