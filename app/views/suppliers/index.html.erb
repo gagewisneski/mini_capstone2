@@ -1,0 +1,13 @@
+<div class="row">
+<% @suppliers.each do |supplier|%>
+  <div class="col-sm-6 col-lg-4">
+  <div class="jumbotron">
+    <div class="container">
+      <h2 class = "supplier-name"><%= link_to supplier.name, "/suppliers/#{supplier.id}" %>:</h2>
+      <h4><%= supplier.email %></h4>
+      <h4><%= supplier.phone %></h4>
+    </div>
+  </div>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,21 @@
+<h1 class="page-header">Add a new supplier</h1>
+<%= form_tag "/suppliers", method: :post do %>
+  <div class="form-group">
+    <%= text_field_tag :name, "Supplier Name", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= text_field_tag :email, "Email", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= text_field_tag :phone, "Phone", class: "form-control" %>
+  </div>
+
+  <div>
+    <%= submit_tag "Save Supplier", class: "btn btn-danger btn-lg" %>
+  </div>
+
+<% end %>
+
+

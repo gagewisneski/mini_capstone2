@@ -17,8 +17,8 @@ class ProductsController < ApplicationController
     @products = Product.where("name iLike ?", "%#{@search}%").order(:name)
 
     discount = params[:discount]
-    if discount == "20"
-      @products = Product.where("price < ?", 20)
+    if discount == "15"
+      @products = Product.where("price < ?", 15)
     end
 
     if @sort_column == nil
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(name: params[:name], price: params[:price].to_i, image: params[:image], description: params[:description])
+    @product = Product.new(name: params[:name], price: params[:price].to_i, image: params[:image], description: params[:description], supplier_id: params[:supplier_id].to_i)
     @product.save
 
     flash[:success] = "Product has been created"
@@ -44,9 +44,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    random = params[:id]
+    rando = params[:id]
     prods = Product.all
-    if random == "random"
+    if rando == "random"
       rando = prods.sample
       rando = rando[:id]
     end
@@ -54,14 +54,11 @@ class ProductsController < ApplicationController
   end
 
   def confirmation
-
     @product = Product.find_by(id: params[:id])
 
     redirect_to "/products/#{@product.id}"
 
     flash[:danger] = "Are you sure you want to delete this product?!?! <a class='btn btn-danger btn-lg' data-method='delete' href='/products/#{@product.id}' role='button'> Yes</a> <a class='btn btn-success btn-lg' href='/products/#{@product.id}' role='button'> No</a>"
-
-
   end
 
   def edit
@@ -70,7 +67,7 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find_by(id: params[:id])
-    product.assign_attributes(name: params[:name], price: params[:price].to_i, image: params[:image], description: params[:description])
+    product.assign_attributes(name: params[:name], price: params[:price].to_i, image: params[:image], description: params[:description], supplier_id: params[:supplier_id].to_i)
     product.save
 
     flash[:success] = "Product has been updated"

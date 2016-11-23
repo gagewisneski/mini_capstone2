@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   get "/products/new", to: "products#new"
   post "/products", to: "products#create"
 
-  get "/products/search", to: "products#search"
-
   #to edit a product
   get "/products/:id/edit", to: "products#edit"
   patch "/products/:id", to: "products#update"
@@ -20,6 +18,24 @@ Rails.application.routes.draw do
 
   get "/products/:id/confirmation", to: "products#confirmation"
 
+  post "/products/search", to: "products#search"
+
+
+
+
+  get "/suppliers", to: "suppliers#index"
+
+  get "/suppliers/new", to: "suppliers#new"
+  post "/suppliers", to: "suppliers#create"
+
+  get "/suppliers/:id", to: "suppliers#show"
+
+  get "/suppliers/:id/edit", to: "suppliers#edit"
+  patch "/suppliers/:id", to: "suppliers#update"
+
+  delete "/suppliers/:id", to: "suppliers#destroy"
+
+  get "/suppliers/:id/confirmation", to: "suppliers#confirmation"
 
 
 end

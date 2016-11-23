@@ -8,6 +8,16 @@ body {
   background-image: url(footer_lodyas.png)
 }
 
+.nav-link {
+  border-left-style: solid;
+  border-color: steelblue;
+}
+
+.searchy {
+  text-align: right;
+  float: right;
+}
+
 .sort {
   text-align: right;
   float: right;
@@ -25,7 +35,20 @@ body {
   font-weight: bold;
 }
 
+.supplier-name{
+  font-weight: bold;
+}
+
 .jumbotron {
+  padding-top: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 3px 3px #888888;
+  background-image: url(halftone.png);
+  text-align: center;
+}
+
+.jumbotron-index {
+  padding-top: 10px;
   border-radius: 10px;
   box-shadow: 1px 3px 3px #888888;
   background-image: url(halftone.png);
@@ -33,7 +56,7 @@ body {
   text-align: center;
 }
 
-.jumbotron-red {
+.jumbotron-red-index {
   border-radius: 10px;
   box-shadow: 1px 3px 3px #000000;
   background-image: url(red-06.jpg);

@@ -3,9 +3,14 @@
   <div class="jumbotron">
     <div class="container">
       <h2 class = "product-name"><%= @product.name + ": . . . " + @product.sale_message%></h2>
-      <image class = "product-image" src=<%= @product.image %>></image>
+      <% @product.images.each do |image| %>
+        <image class = "product-image" src=<%= image.image_src %>></image>
+        <br>
+        <br>
+      <% end %>
       <h3 class = "price"><%= number_to_currency(@product.price).to_s + " + " + number_to_currency(@product.tax).to_s + " = " + number_to_currency(@product.price_tax).to_s %></h3>
       <h4><%= @product.description %></h4>
+      <h5>Supplied By: <%= @product.supplier.name %></h5>
       <div>
         <%= link_to "Edit Product", "/products/#{@product.id}/edit", class:"btn btn-primary btn-lg" %>
       </div>

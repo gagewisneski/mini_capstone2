@@ -1,7 +1,11 @@
 class Product < ApplicationRecord
 
+  belongs_to :supplier
+
+  has_many :images
+
   def sale_message
-    if price < 20
+    if price < 15
       return "Discount Item!"
     else
       return "On Sale!"
@@ -18,9 +22,9 @@ class Product < ApplicationRecord
 
   def discounted?
     if sale_message == "Discount Item!"
-      return "jumbotron jumbotron-red"
+      return "jumbotron jumbotron-red-index"
     else
-      return "jumbotron"
+      return "jumbotron jumbotron-index"
     end
   end
 
