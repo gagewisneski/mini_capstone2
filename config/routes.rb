@@ -38,4 +38,8 @@ Rails.application.routes.draw do
   get "/suppliers/:id/confirmation", to: "suppliers#confirmation"
 
 
+
+  get "/products/:id/images/new", to: "images#new"
+  post "/images", to: "images#create"
+
 end
