@@ -4,6 +4,8 @@ class Product < ApplicationRecord
 
   has_many :images
 
+  belongs_to :user
+
   def sale_message
     if price < 15
       return "Discount Item!"

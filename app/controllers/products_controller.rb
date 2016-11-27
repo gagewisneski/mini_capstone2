@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [ :new, :edit]
 
   def home
     @products = Product.all
@@ -40,7 +41,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(name: params[:name], price: params[:price].to_i, description: params[:description], supplier_id: params[:supplier_id].to_i)
+    @product = Product.new(name: params[:name], price: params[:price].to_i, description: params[:description], supplier_id: params[:supplier_id].to_i, user_id: current_user.id)
     @product.save
 
     flash[:success] = "Product has been created"
