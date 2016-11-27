@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
 
+  def home
+    @products = Product.all
+    @suppliers = Supplier.all
+  end
+
   def index
     @sort_column = params[:sort]
     # in url /products?sort=id
@@ -35,7 +40,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(name: params[:name], price: params[:price].to_i, image: params[:image], description: params[:description], supplier_id: params[:supplier_id].to_i)
+    @product = Product.new(name: params[:name], price: params[:price].to_i, description: params[:description], supplier_id: params[:supplier_id].to_i)
     @product.save
 
     flash[:success] = "Product has been created"
@@ -67,7 +72,7 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find_by(id: params[:id])
-    product.assign_attributes(name: params[:name], price: params[:price].to_i, image: params[:image], description: params[:description], supplier_id: params[:supplier_id].to_i)
+    product.assign_attributes(name: params[:name], price: params[:price].to_i, description: params[:description], supplier_id: params[:supplier_id].to_i)
     product.save
 
     flash[:success] = "Product has been updated"

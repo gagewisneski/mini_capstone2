@@ -27,9 +27,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li><a class="nav-link" href="/suppliers">Suppliers</a></li>
+        <li><a class="nav-link" href="/products">Products</a></li>
         <li><a class="nav-link" href="/products/random">Random Product</a></li>
         <li><a class="nav-link" href="/products?discount=15">Discounted Items</a></li>
         <li><a class="nav-link" href="/products/new">Create a product</a></li>
+        <% if session[:user_id] == nil %>
+          <li><a class="nav-link" href="/signup">Signup</a></li>
+          <li><a class="nav-link" href="/login">Log in</a></li>
+        <% else %>
+          <li><a class="nav-link" href="/logout">Log Out</a></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

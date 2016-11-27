@@ -14,7 +14,7 @@
     </ul>
   </div>
 
-  <div class = "form-inline searchy">
+  <div class = "form-inline header-link">
     <%= form_tag "/products/search", method: :post do %>
       <%= text_field_tag :name, "Search", class: "form-control" %>
       <%= submit_tag "Let's Go", class: "btn btn-default" %>
@@ -29,7 +29,9 @@
     <div class="<%= product.discounted? %>">
     <div class="container">
       <h2 class = "product-name"><%= link_to product.name, "/products/#{product.id}" %>:</h2>
-      <%= image_tag(product.images[0].image_src, class: "product-image")%>
+      <% if product.images.length > 0 %>
+        <%= image_tag(product.images[0].image_src, class: "product-image")%>
+      <% end %>
       <h3 class = "price"><%= number_to_currency(product.price) %></h3>
       <h4><%= product.description %></h4>
       <p><a class="btn btn-primary btn-lg" href="/products/<%= product.id %>" role="button">Add to cart</a></p>

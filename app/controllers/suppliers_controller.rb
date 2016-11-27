@@ -1,6 +1,14 @@
 class SuppliersController < ApplicationController
   def index
-    @suppliers = Supplier.all.order(@sort_column)
+    @suppliers = Supplier.all.order(:id)
+
+        #session
+    if session[:count] == nil
+      session[:count] = 1
+    else
+      session[:count] += 1
+    end
+    @session_counter = session[:count]
   end
 
   def new

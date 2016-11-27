@@ -1,3 +1,12 @@
+<h1 class="page-header">These are all of my beautiful suppliers:
+  <div class="header-link">
+    <%= link_to "Create a supplier", "/suppliers/new", class:"btn btn-primary btn-lg" %>
+  </div>
+
+</h1>
+
+<p class="page-header">You've visited this page: <%= @session_counter %></p>
+
 <div class="row">
 <% @suppliers.each do |supplier|%>
   <div class="col-sm-6 col-lg-4">
