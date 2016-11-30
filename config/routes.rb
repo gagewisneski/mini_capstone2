@@ -52,5 +52,8 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
 
 
+  post "/order", to: "orders#create"
+
+
 
 end

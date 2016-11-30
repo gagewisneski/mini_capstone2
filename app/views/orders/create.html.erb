@@ -1,0 +1,12 @@
+<div class="jumbotron">
+<div class="container">
+  <h1>Here is your order details:</h1>
+  <h2 class = "product-name"><%= @product.name %></h2>
+  <% if @product.images.length > 0 %>
+    <%= image_tag(@product.images[0].image_src, class: "product-image")%>
+  <% end %>
+  <h3 class = "price"><%= number_to_currency(@order.subtotal).to_s + " + " + number_to_currency(@order.tax).to_s + " = " + number_to_currency(@order.total).to_s %></h3>
+  <h4><%= "#{current_user.name}  |  #{current_user.email}" %></h4>
+  <h5>Supplied By: <%= @product.supplier.name %></h5>
+</div>
+</div>

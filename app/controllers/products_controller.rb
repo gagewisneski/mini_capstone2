@@ -20,11 +20,25 @@ class ProductsController < ApplicationController
     end
 
     @search = params[:name]
-    @products = Product.where("name iLike ?", "%#{@search}%").order(:name)
+    @category = Category.find_by(name: params[:category])
+
+    if params[:category]
+      @products = @category.products
+    elsif @search
+      @products = Product.where("name iLike ?", "%#{@search}%").order(:name)
+    else
+      @products = Product.all
+    end
 
     discount = params[:discount]
     if discount == "15"
       @products = Product.where("price < ?", 15)
+    end
+
+    @category = @category.name.capitalize
+
+    if @category == nil
+      @category = "Category"
     end
 
     if @sort_column == nil

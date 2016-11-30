@@ -6,6 +6,11 @@ class Product < ApplicationRecord
 
   belongs_to :user
 
+  has_many :orders
+
+  has_many :product_categories
+  has_many :categories, through: :product_categories
+
   def sale_message
     if price < 15
       return "Discount Item!"
