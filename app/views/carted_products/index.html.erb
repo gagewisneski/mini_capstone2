@@ -1,6 +1,7 @@
 <h1>These are <%= current_user.name %> current products</h1>
-<% session[:tax] = 0 %>
-<% session[:subtotal] = 0 %>
+<% total = 0 %>
+<% tax = 0 %>
+<% subtotal = 0 %>
 <div class="row">
 <% @cartedproducts.each do |cp|%>
   <div class="col-sm-6 col-lg-4">
@@ -8,12 +9,12 @@
     <div class="container">
       <h2 class = "product-name"><%= link_to cp.product.name, "/products/#{cp.product.id}" %>:</h2>
       <% if cp.product.images.length > 0 %>
-        <%= image_tag(cp.product.images[0].image_src, class: "product-image")%>
+        <%= image_tag(cp.product.images[0].image_src, class: "product-image") %>
       <% end %>
       <h3>Quantity: <%= cp.quantity %></h3>
-      <% @total += (cp.product.price) * 1.09 * (cp.quantity) %>
-      <% session[:tax] += cp.product.price * cp.quantity * 0.09 %>
-      <% session[:subtotal] += cp.product.price * cp.quantity %>
+      <% total += (cp.product.price) * 1.09 * (cp.quantity) %>
+      <% tax += cp.product.price * cp.quantity * 0.09 %>
+      <% subtotal += cp.product.price * cp.quantity %>
       <h3 class = "price">Price: <%= number_to_currency((cp.product.price) * 1.09 * (cp.quantity)) %></h3>
       <div>
         <%= link_to "Remove Product", "/checkout/#{cp.id}", method: :patch, class:"btn btn-danger btn-lg" %>
@@ -24,9 +25,14 @@
 <% end %>
 </div>
 
-<h2 class="page-header">Total Price of order: <%= number_to_currency(@total) %></h2>
+<h2 class="page-header">Total Price of order: <%= number_to_currency(total) %></h2>
 <%= form_tag "/order", method: :post do %>
+  <%= hidden_field_tag :total, "#{total}" %>
+  <%= hidden_field_tag :tax, "#{tax}" %>
+  <%= hidden_field_tag :subtotal, "#{subtotal}" %>
   <%= submit_tag "Buy Now", class: "btn btn-danger btn-lg" %>
 <% end %>
 
-<% session[:total] = @total %>
+
+
+
