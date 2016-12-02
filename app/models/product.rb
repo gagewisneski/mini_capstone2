@@ -4,12 +4,11 @@ class Product < ApplicationRecord
 
   has_many :images
 
-  belongs_to :user
-
-  has_many :orders
-
   has_many :product_categories
   has_many :categories, through: :product_categories
+
+  has_many :carted_products
+  has_many :orders, through: :carted_products
 
   def sale_message
     if price < 15

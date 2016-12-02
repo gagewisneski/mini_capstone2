@@ -35,10 +35,10 @@ class ProductsController < ApplicationController
       @products = Product.where("price < ?", 15)
     end
 
-    @category = @category.name.capitalize
-
     if @category == nil
       @category = "Category"
+    else 
+      @category = @category.name.capitalize
     end
 
     if @sort_column == nil

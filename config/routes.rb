@@ -55,5 +55,11 @@ Rails.application.routes.draw do
   post "/order", to: "orders#create"
 
 
+  post "/carted_products", to: "carted_products#create"
+  get "/checkout", to: "carted_products#index"
+
+  patch "/checkout/:id", to: "carted_products#destroy"
+
+
 
 end
