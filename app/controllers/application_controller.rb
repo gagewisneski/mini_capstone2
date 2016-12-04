@@ -22,4 +22,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_user_admin
+    unless current_user.admin
+      flash[:warning] = "You ain't no admin Fool!!!!!"
+      redirect_to "/"
+    end
+  end
+
 end

@@ -4,6 +4,14 @@
       <h2 class = "supplier-name"><%= @supplier.name %></h2>
       <h4><%= @supplier.email %></h4>
       <h4><%= @supplier.phone %></h4>
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <% if session[:user_id] %>
+  <% if current_user.admin %>
+    <div class="jumbotron">
+    <div class="container">
       <div>
         <%= link_to "Edit Supplier", "/suppliers/#{@supplier.id}/edit", class:"btn btn-primary btn-lg" %>
       </div>
@@ -11,5 +19,7 @@
         <%= link_to "Delete Supplier", "/suppliers/#{@supplier.id}/confirmation", class:"btn btn-danger btn-lg" %>
       </div>
     </div>
-  </div>
+    </div>
+  <% end %>
+  <% end %>
 </div>

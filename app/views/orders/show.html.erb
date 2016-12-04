@@ -1,0 +1,7 @@
+<h1>Your order:</h1>
+
+<% @order.carted_products.each do |cp| %>
+  <h2><%= cp.product.name %>
+  <h3><%= cp.quantity %>
+  
+<% end %>

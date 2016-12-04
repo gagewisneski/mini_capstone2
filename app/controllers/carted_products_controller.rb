@@ -1,5 +1,6 @@
 class CartedProductsController < ApplicationController
   before_action :empty_cart!, only: [:index]
+  before_action :authenticate_user!, only: [:create]
 
 
   def create

@@ -1,4 +1,6 @@
 class SuppliersController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
+
   def index
     @suppliers = Supplier.all.order(:id)
 

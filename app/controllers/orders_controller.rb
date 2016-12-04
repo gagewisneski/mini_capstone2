@@ -7,14 +7,15 @@ class OrdersController < ApplicationController
     @order = Order.new(user_id: current_user.id, subtotal: params[:subtotal].to_i, tax: params[:tax].to_i, total: params[:total].to_i)
     @order.save
 
-    @cartedproducts.each do |product|
-      product.assign_attributes(status: "purchased", order_id: @order.id)
-      product.save
-    end
+    @cartedproducts.update_all(status: "purchased", order_id: @order.id)
 
     flash[:success] = "You done ordered that stuff!"
 
     redirect_to "/"
+  end
+
+  def show
+    @order = Order.find_by(id: params[:id])
   end
 
 end

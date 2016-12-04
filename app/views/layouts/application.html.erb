@@ -31,7 +31,9 @@
         <li><a class="nav-link" href="/products">Products</a></li>
         <li><a class="nav-link" href="/products/random">Random Product</a></li>
         <li><a class="nav-link" href="/products?discount=15">Discounted Items</a></li>
+        <% if current_user.admin %>
         <li><a class="nav-link" href="/products/new">Create a product</a></li>
+        <% end %>
         <% unless current_user %>
           <li><a class="nav-link" href="/signup">Signup</a></li>
           <li><a class="nav-link" href="/login">Log in</a></li>

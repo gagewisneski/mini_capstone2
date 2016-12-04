@@ -60,6 +60,8 @@ Rails.application.routes.draw do
 
   patch "/checkout/:id", to: "carted_products#destroy"
 
+  get "/orders/:id", to: "orders#show"
+
 
 
 end
