@@ -11,4 +11,7 @@
 
 class Image < ApplicationRecord
   belongs_to :product
+
+  validates :image_src, presence: true
+  validates :product_id, presence: true
 end

@@ -1,5 +1,6 @@
 
 <h1 class="page-header">Editing product: <%= @product.name %></h1>
+
 <%= form_tag "/products/#{@product.id}", method: :patch do %>
   <div class="form-group">
     <%= text_field_tag :name, "#{@product.name}", class: "form-control" %>

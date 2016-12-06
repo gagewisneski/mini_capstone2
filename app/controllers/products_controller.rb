@@ -53,15 +53,19 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
-    @product = Product.new(name: params[:name], price: params[:price].to_i, description: params[:description], supplier_id: params[:supplier_id].to_i, user_id: current_user.id)
-    @product.save
+    @product = Product.new(name: params[:name], price: params[:price].to_i, description: params[:description], supplier_id: params[:supplier_id].to_i)
 
-    flash[:success] = "Product has been created"
-
-    redirect_to "/products/#{@product.id}"
+    if @product.save
+      flash[:success] = "Product has been created"
+      redirect_to "/products/#{@product.id}"
+    else
+      flash[:warning] = @product.errors.full_messages.join(", ")
+      render :new
+    end
   end
 
   def show
@@ -87,13 +91,16 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product = Product.find_by(id: params[:id])
-    product.assign_attributes(name: params[:name], price: params[:price].to_i, description: params[:description], supplier_id: params[:supplier_id].to_i)
-    product.save
+    @product = Product.find_by(id: params[:id])
+    @product.assign_attributes(name: params[:name], price: params[:price].to_i, description: params[:description], supplier_id: params[:supplier_id].to_i)
 
-    flash[:success] = "Product has been updated"
-
-    redirect_to "/products/#{product.id}"
+    if @product.save
+      flash[:success] = "Product has been updated"
+      redirect_to "/products/#{product.id}"
+    else
+      flash[:warning] = @product.errors.full_messages.join(", ")
+      render :edit
+    end
   end
 
   def destroy

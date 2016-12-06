@@ -2,11 +2,13 @@
 
 <%= form_tag "/images", method: :post do %>
   <div class="form-group">
-    <%= text_field_tag :image_src, "Image Source", class: "form-control" %>
+    <%= label_tag :image_src %>
+    <%= text_field_tag :image_src, @image.image_src, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= text_field_tag :product_id, "#{@product.id}", class: "form-control", :readonly => true %>
+    <%= label_tag :product_id %>
+    <%= text_field_tag :product_id, @product.id, class: "form-control", :readonly => true %>
   </div>
 
   <div>

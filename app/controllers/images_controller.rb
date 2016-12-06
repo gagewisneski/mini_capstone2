@@ -3,16 +3,20 @@ class ImagesController < ApplicationController
 
   def new
     @product = Product.find_by(id: params[:id])
+    @image = Image.new
   end
 
   def create
     @image = Image.new(image_src: params[:image_src], product_id: params[:product_id])
-    @image.save
-
     @product = Product.find_by(id: params[:product_id])
+    
 
-    flash[:success] = "You added a new image for the product: #{@product.name}"
-
-    redirect_to "/products/#{@product.id}"
+    if @image.save
+      flash[:success] = "You added a new image for the product: #{@product.name}"
+      redirect_to "/products/#{@product.id}"
+    else
+      flash[:warning] = @image.errors.full_messages.join(", ")
+      render :new
+    end
   end
 end
